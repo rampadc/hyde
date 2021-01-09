@@ -79,7 +79,6 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Abril Fatface", serif;
   font-size: 3.25rem;
 }
 
@@ -247,4 +246,62 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
+}
+
+/* Navy */
+.theme-base-navy .sidebar {
+  background-color: #353e49;
+}
+.theme-base-navy .content a,
+.theme-base-navy .related-posts li a:hover {
+  color: #353e49;
+}
+
+
+.post-tags a {
+  color: black;
+}
+
+/* Based on Automattic's Wilson theme */
+.sidebar a {
+  transition: color 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.sidebar h1 {
+  transition: color 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #ff6900;
+}
+
+.sidebar h1:hover {
+  color: #ff6900;
+}
+
+/*  New styles */
+.post-tags {
+  opacity: 0.5;
+  margin-bottom: 2rem;
+  color: black;
+}
+
+.read-more-link {
+  margin-top: 0.5rem;
+}
+
+.page-title,
+.post-title,
+.post-title a {
+  color: #303030;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.page-title:hover,
+.post-title:hover,
+.post-title a:hover {
+  color: #ff6900;
 }
