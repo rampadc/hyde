@@ -11,11 +11,33 @@
   </span>
   {{ end }}
   
-  {{- with .Content -}}
-    <div>
-      {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor">&nbsp;#</a> ${3}` | safeHTML }}
+  {{ if .Params.Cover }}
+    <img src="{{ .Params.Cover | absURL }}" class="post-cover" alt="{{ .Title | plainify | default " " }}" />
+  {{ end }}
+
+  {{ if .Params.Toc }}
+    <div class="table-of-contents">
+      <h2>
+        {{ if .Params.TocTitle }}
+          {{ .Params.TocTitle }}
+        {{ else if $.Site.Params.TocTitle }}
+          {{ $.Site.Params.TocTitle }}
+        {{ else }}
+          Table of Contents
+        {{ end }}
+      </h2>
+      {{ .TableOfContents }}
     </div>
-  {{- end -}}
+  {{ end }}
+
+  <div class="post-content">
+    {{- with .Content -}}
+      <div>
+        {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor">&nbsp;#</a> ${3}` | safeHTML }}
+      </div>
+    {{- end -}}
+  </div>
+  
 
   {{ if or .NextInSection .PrevInSection }}
     <div class="pagination">
